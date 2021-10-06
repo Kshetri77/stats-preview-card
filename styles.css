@@ -1,6 +1,25 @@
-/* font-family: 'Inter', sans-serif;
-font-family: 'Lexend Deca', sans-serif; */
-
+/*# Front-end Style Guide
+## Layout
+The designs were created to the following widths:
+- Mobile: 375px
+- Desktop: 1440px
+## Colors
+### Primary
+- Very dark blue (main background): hsl(233, 47%, 7%)
+- Dark desaturated blue (card background): hsl(244, 38%, 16%)
+- Soft violet (accent): hsl(277, 64%, 61%)
+### Neutral
+- White (main heading, stats): hsl(0, 0%, 100%)
+- Slightly transparent white (main paragraph): hsla(0, 0%, 100%, 0.75)
+- Slightly transparent white (stat headings): hsla(0, 0%, 100%, 0.6)
+## Typography
+### Body Copy
+- Font size: 15px
+### Font
+- Family: [Inter](https://fonts.google.com/specimen/Inter)
+- Weights: 400, 700
+- Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400*/
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -14,35 +33,40 @@ body {
   background-color: hsl(233, 47%, 7%);
   font-family: 'Lexend Deca', sans-serif;
   font-size: 15px;
+  text-align: center;
 }
 
+  /* centre the container in middle of the screen */
+.grid-wrap{
+padding:20px;
+margin-top: -200px;
+margin-left: -510px;
+position: absolute;
+top: 50%;
+left: 50%;
 
+}
 
 /* styles for card */
 .main-container {
-  width:85%;
-  height: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-align: center;
   background-color: hsl(244, 38%, 16%);
-  position:absolute;
-  top:50%;
-  left:50%;
-   transform: translate(-50%, -50%);
-
-}
-
-.text {
-
+  display: grid;
+  grid-template-columns: 50% 50%;
   text-align: center;
+  border:solid 2px inherit;
+  border-radius: 15px;
+
+
+}
+.text {
+  border-top-left-radius:15px;
+  border-bottom-right-radius: 15px;
+  text-align: left;
   padding: 0 60px 0 20px;
-  line-height: 1.3;
+
 }
 
-.banner{
-  
-}
+.banner {}
 
 .heading {
   color: hsl(0, 0%, 100%);
@@ -60,57 +84,73 @@ body {
 }
 
 .banner-img {
-
-object-fit: cover;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  max-height: 100%;
+  max-width: 100%;
+  /* //add accent to the image */
+  filter: sepia(13%) saturate(3195%) hue-rotate(235deg) brightness(75%) contrast(70%);
 }
-
-
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
   text-align: center;
-  padding: 0 0 30px 0;
   font-family: 'Inter', sans-serif;
 }
 
-.stat-box {
-  line-height: 1;
-}
-
-.number{
+.number {
   color: hsla(0, 0%, 100%, 0.6);
 }
 
-.cat{
+.cat {
   color: hsla(0, 0%, 100%, 0.75);
 }
 
+@media (max-width:760px) {
 
-@media (max-width:750px) {
 
-.main-container  {
-  display: flex; flex-flow: column;
-  position:static;
-  top:0;
-  left:0;
-   transform: translate(0, 0); }
+/* undoing the centering of container */
+    .grid-wrap{
+      position:static;
+      margin:0;
+    }
+  .main-container {
+  /* adjust the order of divs */
+    display: flex;
+    flex-flow: column;
+    padding-bottom:30px;
+  }
 
-    .banner { order: 1; }
-
-    .text{ order: 2;  }
-
-    .heading{
-      padding-top: 20px;
+    .banner {
+      order: 1;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
+    .text {
+      text-align:center;
+      order: 2;
+      padding:20px;
+    }
 
-    }
-    .stat-box{
-      padding-top: 20px;
-    }
+.banner-img{
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
+    /* to remove the centering feature  */
+
+
+
+  .heading {
+    padding-top: 20px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .stat-box {
+    padding-top: 20px;
+  }
 }
